@@ -13,12 +13,12 @@ app.use((req, res, next) => {
    res.header('Access-Control-Allow-Origin', '*');
    next();
  });
- 
+
 app.use(express.json())
 app.use(cors({
  origin: 'https://shopping-react-firebase-app-front.vercel.app',
    methods: ["GET", "POST", "DELETE", "PUT"],
-   credentials: true,
+   credentials: false,
 
 }));
 app.use(cookieParser())

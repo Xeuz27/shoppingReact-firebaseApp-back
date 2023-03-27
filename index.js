@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 
 app.use(express.json())
 app.use(cors({
- origin: 'https://shopping-react-firebase-app-front.vercel.app',
+ origin: '*',
    methods: ["GET", "POST", "DELETE", "PUT"],
    credentials: false,
 

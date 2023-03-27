@@ -11,7 +11,12 @@ const PORT = process.env.PORT || 3005;
 
 
 app.use(express.json())
-app.use(cors());
+app.use(cors({
+ origin: 'https://shopping-react-firebase-app-front.vercel.app/',
+   methods: ["GET", "POST", "DELETE", "PUT"],
+   credentials: true,
+
+}));
 app.use(cookieParser())
 
 

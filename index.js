@@ -10,14 +10,17 @@ const PORT = process.env.PORT || 3005;
 // const SECRET = process.env.SECRET
 
 app.use((req, res, next) => {
-   res.header('Access-Control-Allow-Origin', '*');
+   res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
    next();
  });
 
 app.use(express.json())
 app.use(cors({
  origin: '*',
-   methods: ["GET", "POST", "DELETE", "PUT"],
+   methods: ["GET", "POST","UPDATE", "DELETE", "PUT"],
    credentials: true,
 
 }));

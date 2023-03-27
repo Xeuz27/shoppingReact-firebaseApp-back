@@ -37,11 +37,12 @@ app.use(function (req, res, next) {
 
 app.use(express.json())
 app.use(cors({
- origin: '*',
-   methods: ["GET", "POST","UPDATE", "DELETE", "PUT"],
-   credentials: true,
-
-}));
+   'allowedHeaders': ['sessionId', 'Content-Type'],
+   'exposedHeaders': ['sessionId'],
+   'origin': '*',
+   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+   'preflightContinue': false
+ }));
 app.use(cookieParser())
 
 

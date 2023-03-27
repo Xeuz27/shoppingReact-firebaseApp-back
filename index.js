@@ -37,11 +37,7 @@ app.use(function (req, res, next) {
 
 app.use(express.json())
 app.use(cors({
-   'allowedHeaders': ['sessionId', 'Content-Type'],
-   'exposedHeaders': ['sessionId'],
-   'origin': 'https://shopping-react-firebase-app-front.vercel.app',
-   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-   'preflightContinue': false
+   credentials: true
  }));
 app.use(cookieParser())
 

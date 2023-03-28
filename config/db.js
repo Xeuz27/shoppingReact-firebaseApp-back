@@ -3,7 +3,7 @@ const HOST = "aws-sa-east-1.connect.psdb.cloud";
 const USER_DB= "2120jdbmgy5itljizjr3";
 const PASSWORD_DB = 'pscale_pw_SjItqa8p18YlOBX8cJk4RgyumFRY5A8xg8CgjOTLyXb';
 const DATA_BASE = "portucomprausadb";
-const db = mysql.createConnection({
+const db = mysql.createPool({
   host     : HOST,
   user     : USER_DB,
   password : PASSWORD_DB,
@@ -13,6 +13,7 @@ const db = mysql.createConnection({
     rejectUnauthorized:false
   }
 });
+
 module.exports = db;
 
 

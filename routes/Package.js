@@ -4,10 +4,6 @@ const router = express.Router()
 const db = require('../config/db')
 
 router.post("/", (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
-    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
   const idOrder = req.body.idOrder
   const idUser = req.body.id;
 

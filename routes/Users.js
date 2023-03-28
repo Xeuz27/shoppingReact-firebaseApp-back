@@ -4,10 +4,6 @@ const router = express.Router();
 const db = require("../config/db");
 
 router.get("/", (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
-    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
   db.query("SELECT * FROM users;", (err, results) => {
     if (err) {
       console.log(err);
@@ -46,7 +42,7 @@ router.post("/register", (req, res) => {
   const id = req.body.id;
   const displayName = req.body.displayName;
   db.query("SELECT * FROM users WHERE userId=?;", [id], (err, results) => {
-    if (results.length < 1){
+    if (results.length < 1) {
       db.query(
         "INSERT INTO users (email, userId, displayName) VALUE (?,?,?);",
         [email, id, displayName],
@@ -54,28 +50,24 @@ router.post("/register", (req, res) => {
           if (err) {
             console.log(err);
           }
-          console.log('hizo el primer query')
+          console.log("hizo el primer query");
           res.send({ results });
         }
       );
     }
     if (results.length === 1) {
-      db.query("UPDATE users SET displayName = ?, email = ? WHERE userId=?;",[displayName, email, id], (err, results) =>{
-        if(err){
-          console.log(err)
+      db.query(
+        "UPDATE users SET displayName = ?, email = ? WHERE userId=?;",
+        [displayName, email, id],
+        (err, results) => {
+          if (err) {
+            console.log(err);
+          }
+          res.send({ results });
         }
-        res.send({results})
-      })
+      );
     }
-  }
-  )
-
-
-
-
-
-
-  
+  });
 });
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const mysql      = require('mysql');
+const mysql      = require('mysql2');
 const HOST = "aws-sa-east-1.connect.psdb.cloud";
 const USER_DB= "2120jdbmgy5itljizjr3";
 const PASSWORD_DB = 'pscale_pw_SjItqa8p18YlOBX8cJk4RgyumFRY5A8xg8CgjOTLyXb';
@@ -8,7 +8,10 @@ const db = mysql.createConnection({
   user     : USER_DB,
   password : PASSWORD_DB,
   database : DATA_BASE,
-  multipleStatements: true
+  multipleStatements: true,
+  ssl:{
+    rejectUnauthorized:false
+  }
 });
 module.exports = db;
 

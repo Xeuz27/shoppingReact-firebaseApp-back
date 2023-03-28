@@ -28,6 +28,6 @@
     "rand-token": "^1.0.1"
   },
   "devDependencies": {
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.3"
   }
 }

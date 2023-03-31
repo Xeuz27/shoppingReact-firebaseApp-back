@@ -21,10 +21,11 @@ router.post('/add', (req, res) => {
   const idOrder = req.body.orderId;
   const idUser =  req.body.id;
   const products = req.body.products;
+  const status = req.body.status;
   productsstring = JSON.stringify(products)
 
     db.query(
-      'INSERT INTO packages (idPackage, idUser, products) VALUES (?,?,?);',[idOrder, idUser, productsstring], (err, results) => {
+      'INSERT INTO packages (idPackage, idUser, products, status) VALUES (?,?,?,?);',[idOrder, idUser, productsstring, status], (err, results) => {
         if (err) {
           console.log(err)
         }

@@ -8,7 +8,7 @@ router.post("/", (req, res) => {
   const idUser = req.body.id;
 
   db.query(
-  "SELECT `products` FROM packages WHERE idPackage=? AND idUser=?;",[idOrder, idUser], (err, results) => {
+  "SELECT `products`, `status` FROM packages WHERE idPackage=? AND idUser=?;",[idOrder, idUser], (err, results) => {
     if (err) {
       console.log(err);
     }

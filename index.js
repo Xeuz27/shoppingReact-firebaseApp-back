@@ -35,8 +35,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const PackagesRoute = require("./routes/Package");
 app.use("/package", PackagesRoute);
 
-const AuthRoute = require("./routes/auth");
-app.use("/auth", AuthRoute);
+const IKAuthRoute = require("./routes/ikauthroute");
+app.use("/auth",  IKAuthRoute);
 
 const UsersRoute = require("./routes/Users");
 app.use("/users", UsersRoute);

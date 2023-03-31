@@ -10,12 +10,6 @@ const PORT = process.env.PORT || 3005;
 const CLIENT_PORT = process.env.CLIENT_PORT;
 
 app.use(express.json());
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", 
-    "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
 var whitelist = [CLIENT_PORT];
 var corsOptions = {
